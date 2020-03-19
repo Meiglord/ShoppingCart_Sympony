@@ -17,7 +17,7 @@
 				{{'panier.ilya'|trans({'nb':panier|length})}}
 
 			{% endif %}
-
+			{% set state = 0 %}
 			{# Somme d'un produit * quantité #}
 			{% set prix_total_quantite = 0 %}
 			{# Prix de tous les articles commandés #}
@@ -35,13 +35,14 @@
 				</thead>
 				<tbody>
 					{% for produit in panier %}
+						{% set state = produit.etat %}
+
 						<tr>
 							<td>
 								<a href="{{ path('un_produit', {'id':produit.id}) }}">{{ produit.produit.nom }}</a>
 							</td>
 							<td>{{ produit.quantite }}</td>
 							<td>{{ produit.produit.prix }}€</td>
-
 
 							<td>
 								{% set prix_total_quantite = produit.quantite * produit.produit.prix %}
@@ -58,13 +59,15 @@
 			<td>{{'panier.total'|trans}}
 
 				{{ prix_total}}€</td>
-			{# {% if panier.etat == 0 %} #}
-			<td>
-				<a type="button" class="btn btn-success" href="{{path('panier_acheter')}}">{{'panier.acheter'|trans}}</a>
-			</td>
-			{# {% elseif panier.etat == 1 %} #}
-			<p>Vous avez déjà acheté le panier.</p>
-			{# {% endif %} #}
+			{% if state == 0 %}
+				<td>
+					<a type="button" class="btn btn-success" href="{{path('panier_acheter')}}">{{'panier.acheter'|trans}}</a>
+				</td>
+			{% elseif state == 1 %}
+				<td>
+					<a type="button" class="btn btn-secondary disabled" href="{{path('panier_acheter')}}">{{'panier.dejaacheter'|trans}}</a>
+				</td>
+			{% endif %}
 		</table>
 	{% else %}
 		<p>{{'panier.noproduit'|trans}}

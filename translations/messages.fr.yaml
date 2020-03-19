@@ -1,3 +1,9 @@
+Nom: "Nom"
+Photo: "Photo"
+Quantite: "Quantite"
+Prix: "Prix"
+Envoyer: "Créer"
+
 produit:
   produit: "Produit"
   titre: "Liste de Produits"
@@ -20,6 +26,8 @@ panier:
   montant: "Montant total"
   total: "Prix total :"
   acheter: "Acheter"
+  dejaacheter: "Acheté"
+  ajouteropanier: "Ajouter nom au panier"
 
 fichier:
   erreur: "Le fichier n'a pas pu être uploadé'"

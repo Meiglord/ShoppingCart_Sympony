@@ -1,3 +1,9 @@
+Nom: "Name"
+Photo: "Photo"
+Quantite: "Quantity"
+Prix: "Price"
+Envoyer: "Create"
+
 produit:
   produit: "Product"
   titre: "Product list"
@@ -16,10 +22,12 @@ panier:
   noproduit: "My shopping cart is empty"
   ilyaS: "There are nb products in my shopping cart"
   ilya: There is nb product shopping cart"
-  supprimer: "Delete nb from my shopping cart"
+  supprimer: "Delete nom from my shopping cart"
   montant: "Total product amount"
   total: "Total price "
   acheter: "Buy"
+  dejaacheter: "Bought"
+  ajouteropanier: "Add nom to my shopping cart"
 
 fichier:
   erreur: "The file could not be uploaded"

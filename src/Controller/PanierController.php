@@ -20,7 +20,6 @@ class PanierController extends AbstractController
     {
         $em = $this->getDoctrine()->getManager();
         $panier = $em->getRepository(Panier::class)->findAll();
-
         return $this->render('panier/index.html.twig', [
             'panier' => $panier,
             'controller_name' => 'PanierController',
@@ -43,16 +42,18 @@ class PanierController extends AbstractController
         return $this->redirectToRoute('panier');
     }
 
-
     /**
      * @Route("/panier/acheter", name="panier_acheter")
      */
-    public function panierAcheter(Panier $produit = null, TranslatorInterface $translator)
+    public function panierAcheter(TranslatorInterface $translator)
     {
-        if ($produit != null) {
-            $em = $this->getDoctrine()->getManager();
-            $produit->setEtat(true);
-            $em->persist($produit);
+        $em = $this->getDoctrine()->getManager();
+        $paniers = $em->getRepository(Panier::class)->findAll();
+        if ($paniers != null) {
+            foreach ($paniers as $panier) {
+                $panier->setEtat(true);
+            }
+            $em->persist($panier);
             $em->flush();
             $this->addFlash("success", $translator->trans('flash.panier.acheter'));
         } else {

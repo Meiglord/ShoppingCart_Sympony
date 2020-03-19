@@ -20,9 +20,8 @@
 			<a href="{{path('delete_produit',{'id':produit.id})}}">{{'produit.supprimer'|trans}}</a>
 		</td>
 	</td>
-	<h3>Ajouter
+	<h3>{{'panier.ajouteropanier'|trans({'nom':produit.nom})}}
 		{{produit.nom}}
-		au panier :
 	</h3>
 	{{form(form_ajout_panier)}}
 
