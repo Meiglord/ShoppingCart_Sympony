@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ produit.nom }}
+{% endblock %}
+
+{% block body %}
+	<style></style>
+
+	<div class="example-wrapper">
+		<h1>{{produit.nom}}</h1>
+		<img src="{{ asset('images/' ~ produit.photo) }}">
+		<p>{{'produit.quantite'|trans}}
+			:
+			{{produit.quantite}}</p>
+		<p>{{'produit.prix'|trans}}
+			:
+			{{produit.prix}}€</p>
+		<td>
+			<a href="{{path('delete_produit',{'id':produit.id})}}">{{'produit.supprimer'|trans}}</a>
+		</td>
+	</td>
+	<h3>Ajouter
+		{{produit.nom}}
+		au panier :
+	</h3>
+	{{form(form_ajout_panier)}}
+
+		{# {{ form(form_) }} #}
+
+
+	</div>
+{% endblock %}

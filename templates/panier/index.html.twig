@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{'panier.titre'|trans}}
+{% endblock %}
+
+{% block body %}
+	<style></style>
+
+	<div class="">
+
+		<h1>{{'panier.titre'|trans}}</h1>
+		{% if panier is not empty %}
+			{% if panier|length > 1 %}
+				{{'panier.ilyaS'|trans({'nb':panier|length})}}
+			{% elseif panier|length == 1 %}
+				{{'panier.ilya'|trans({'nb':panier|length})}}
+
+			{% endif %}
+
+			{# Somme d'un produit * quantité #}
+			{% set prix_total_quantite = 0 %}
+			{# Prix de tous les articles commandés #}
+			{% set prix_total = 0 %}
+
+			<table class="table">
+				<thead>
+					<tr>
+						<th>{{'produit.nom'|trans}}</th>
+						<th>{{'produit.quantite'|trans}}</th>
+						<th>{{'produit.prix'|trans}}</th>
+						<th>{{'panier.montant'|trans}}</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					{% for produit in panier %}
+						<tr>
+							<td>
+								<a href="{{ path('un_produit', {'id':produit.id}) }}">{{ produit.produit.nom }}</a>
+							</td>
+							<td>{{ produit.quantite }}</td>
+							<td>{{ produit.produit.prix }}€</td>
+
+
+							<td>
+								{% set prix_total_quantite = produit.quantite * produit.produit.prix %}
+								{{ prix_total_quantite}}€</td>
+							<td>
+								<a type="button" class="btn btn-danger" href="{{path('delete_produit_from_panier',{'id':produit.id})}}">{{'panier.supprimer'|trans({'nom':produit.produit.nom})}}</a>
+							</td>
+							{% set prix_total = prix_total + prix_total_quantite %}
+						</tr>
+					</p>
+				</tbody>
+			{% endfor %}
+
+			<td>{{'panier.total'|trans}}
+
+				{{ prix_total}}€</td>
+			{# {% if panier.etat == 0 %} #}
+			<td>
+				<a type="button" class="btn btn-success" href="{{path('panier_acheter')}}">{{'panier.acheter'|trans}}</a>
+			</td>
+			{# {% elseif panier.etat == 1 %} #}
+			<p>Vous avez déjà acheté le panier.</p>
+			{# {% endif %} #}
+		</table>
+	{% else %}
+		<p>{{'panier.noproduit'|trans}}
+		{% endif %}
+	</div>
+{% endblock %}

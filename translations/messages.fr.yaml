@@ -1,0 +1,37 @@
+produit:
+  produit: "Produit"
+  titre: "Liste de Produits"
+  nom: "Nom"
+  photo: "Photo"
+  quantite: "Quantité"
+  prix: "Prix"
+  supprimer: "Supprimer"
+  noproduit: "Il n'y a pas de produit. Veuillez ajouter un produit."
+  modifier: "Modifier"
+  creer: "Créer"
+
+panier:
+  panier: "Panier"
+  titre: "Mon Panier"
+  noproduit: "Mon Panier est vide"
+  ilyaS: "Il y a nb produits dans mon panier"
+  ilya: "Il y a nb produit dans mon panier"
+  supprimer: "Supprimer nom de mon panier"
+  montant: "Montant total"
+  total: "Prix total :"
+  acheter: "Acheter"
+
+fichier:
+  erreur: "Le fichier n'a pas pu être uploadé'"
+
+flash:
+  produit:
+    cree: "Produit créé"
+    ajoutpanier: "Produit ajouté au panier"
+    stock: "Erreur : Vous ne pouvez pas ajouter plus de produit qu'il n'y en a en stock."
+    supprimer: "Le produit a bien été supprimé."
+  panier:
+    supprimer: "Le produit a été retiré du panier."
+    passupprimer: "Erreur : Le produit n'a pas pu être retiré du panier."
+    acheter: "Commande bien reçue. Vous serez livré après l'épidémie."
+    pasacheter: "La commande n'a pas pû être validée."

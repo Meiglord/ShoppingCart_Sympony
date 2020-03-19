@@ -1,0 +1,37 @@
+produit:
+  produit: "Product"
+  titre: "Product list"
+  nom: "Name"
+  photo: "Photo"
+  quantite: "Quantity"
+  prix: "Price"
+  supprimer: "Delete"
+  noproduit: "There is no product. Please add one."
+  modifier: "Modify"
+  creer: "Create"
+
+panier:
+  panier: "Shopping cart"
+  titre: "My shopping cart"
+  noproduit: "My shopping cart is empty"
+  ilyaS: "There are nb products in my shopping cart"
+  ilya: There is nb product shopping cart"
+  supprimer: "Delete nb from my shopping cart"
+  montant: "Total product amount"
+  total: "Total price "
+  acheter: "Buy"
+
+fichier:
+  erreur: "The file could not be uploaded"
+
+flash:
+  produit:
+    cree: "Product created"
+    ajoutpanier: "Product added to my shopping cart"
+    stock: "Errot : You can't add more products that the total available in the store."
+    supprimer: "The product was deleted."
+  panier:
+    supprimer: "The product was removed from your shopping cart."
+    passupprimer: "Error : The product could not be removed from your shopping cart."
+    acheter: "Your order is validated. You will be delivered after the epidemic."
+    pasacheter: "Your order could not be validated."
